@@ -1,6 +1,4 @@
 module.exports = {
-  modules: [
-    "~/modules/typescript.js"
-  ],
+  modules: ["~/modules/typescript"],
 }
   
