@@ -6,6 +6,7 @@
       <button @click="removeTodo(todo)">remove</button>
     </li>
     <li><input placeholder="What needs to be done?" @keyup.enter="addTodo"></li>
+    <li>{{ip}}</li>
   </ul>
 </template>
 
@@ -13,6 +14,10 @@
 import { mapMutations } from 'vuex';
 
 export default {
+  async asyncData({ app }) {
+    const ip = await app.$axios.$get('http://icanhazip.com')
+    return { ip }
+  },
   computed: {
     todos () { return this.$store.state.todos.list }
   },
@@ -27,7 +32,7 @@ export default {
     },
     ...mapMutations({
       toggle: 'todos/toggle'
-    })
+    }),
   }
 }
 </script>
