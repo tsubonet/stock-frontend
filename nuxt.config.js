@@ -1,4 +1,10 @@
 module.exports = {
-  modules: ["~/modules/typescript"],
+  modules: [
+    '@nuxtjs/axios',,
+    '~/modules/typescript'
+  ],
+  axios: {
+    // proxyHeaders: false
+  }
 }
   
