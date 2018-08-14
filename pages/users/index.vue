@@ -3,7 +3,8 @@
     <div>
       <h1>usersのindexページです。</h1>
       <p>count={{count}}</p>
-      <button @click="addCount">カウントアップ</button>
+      <button @click="addCount">+</button>
+      <button @click="reduceCount">-</button>
     </div>
   </section>
 </template>
@@ -16,6 +17,9 @@ export default {
   methods: {
     addCount (e) {
       this.$store.commit('counter/add')
+    },
+    reduceCount (e) {
+      this.$store.commit('counter/reduce')
     }
   }
 }
