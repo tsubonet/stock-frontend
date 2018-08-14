@@ -9,7 +9,7 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   computed: {
     count () { return this.$store.state.counter.count }

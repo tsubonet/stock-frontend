@@ -9,7 +9,7 @@
   </ul>
 </template>
 
-<script>
+<script lang="ts">
 import { mapMutations } from 'vuex';
 
 export default {

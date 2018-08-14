@@ -10,5 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "nuxt": "^1.4.2"
+  },
+  "devDependencies": {
+    "ts-loader": "^3.5.0",
+    "typescript": "^2.7.2"
   }
 }
