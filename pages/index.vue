@@ -20,6 +20,12 @@ export default {
     const ip = await app.$axios.$get('http://icanhazip.com')
     return { ip }
   },
+  mounted: function () {
+    console.log("mounted");
+    this.$nextTick(function () {
+      // ビュー全体がレンダリングされた後にのみ実行されるコード
+    })
+  },
   components: {
     Header,
     Input,

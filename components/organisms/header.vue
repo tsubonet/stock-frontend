@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>株価を取得するよ</h1>
+    <h1><i class="fas fa-chart-line"></i> 株価を取得するよ</h1>
   </header>
 </template>
 <script lang="ts">
