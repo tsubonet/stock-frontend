@@ -7,13 +7,14 @@
         <p>ip: {{ip}}</p>
       </div>
       <p><nuxt-link to="/users">About page</nuxt-link></p>
-      
+      <StockDetail /> 
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Header from '../components/organisms/header.vue'
+import StockDetail from '../components/organisms/stockDetail.vue'
 import Input from '../components/atoms/input.vue'
 export default {
   async asyncData({ app }) {
@@ -29,6 +30,7 @@ export default {
   components: {
     Header,
     Input,
+    StockDetail,
   }
 }
 </script>

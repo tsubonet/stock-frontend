@@ -1,11 +1,16 @@
 <template>
   <div class="searchWrap">
-    <input placeholder="input stock's code" />
+    <input placeholder="input stock's code" v-on:keyup.enter="submit" />
     <i class="fas fa-search"></i>
   </div>
 </template>
 <script lang="ts">
 export default {
+  methods: {
+    submit: function (event) {
+      this.$store.dispatch('stocks/requestFetchStock', event.target.value)
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -31,5 +36,4 @@ export default {
     color: #ccc;
   }
 }
-
 </style>
