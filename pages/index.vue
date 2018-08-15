@@ -1,25 +1,36 @@
 <template>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">
-        Hello World
-      </h1>
+  <div>
+    <Header />
+    <div class="container">   
+      <Input /> 
       <div>
-        <h1>Hello world!</h1>
         <p>ip: {{ip}}</p>
       </div>
-      <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
-      </p>
       <p><nuxt-link to="/users">About page</nuxt-link></p>
+      
     </div>
-  </section>
+  </div>
 </template>
-<script>
+
+<script lang="ts">
+import Header from '../components/organisms/header.vue'
+import Input from '../components/atoms/input.vue'
 export default {
   async asyncData({ app }) {
     const ip = await app.$axios.$get('http://icanhazip.com')
     return { ip }
+  },
+  components: {
+    Header,
+    Input,
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 20px;
+}
+</style>
