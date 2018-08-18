@@ -23,10 +23,10 @@
 </template>
 
 <script lang="ts">
-import Header from '../components/organisms/header.vue'
-import StockDetail from '../components/organisms/stockDetail.vue'
-import StockList from '../components/molecules/stockList.vue'
-import Input from '../components/atoms/input.vue'
+import Header from '../../components/organisms/header.vue'
+import StockDetail from '../../components/organisms/stockDetail.vue'
+import StockList from '../../components/molecules/stockList.vue'
+import Input from '../../components/atoms/input.vue'
 
 export default {
   data: function() {
