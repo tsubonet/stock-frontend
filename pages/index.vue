@@ -2,12 +2,14 @@
   <div>
     <Header />
     <div class="container">   
-      <Input /> 
-      <div>
-        <p>ip: {{ip}}</p>
-      </div>
-      <p><nuxt-link to="/users">About page</nuxt-link></p>
-      <StockDetail /> 
+      <Input 
+        :submit="submit"
+        :placeholder="placeholder"
+      /> 
+      <StockDetail
+        :result="result"
+       /> 
+      <p><nuxt-link to="/users">users page</nuxt-link></p>
     </div>
   </div>
 </template>
@@ -17,15 +19,23 @@ import Header from '../components/organisms/header.vue'
 import StockDetail from '../components/organisms/stockDetail.vue'
 import Input from '../components/atoms/input.vue'
 export default {
-  async asyncData({ app }) {
-    const ip = await app.$axios.$get('http://icanhazip.com')
-    return { ip }
+  data: function() {
+    return {
+      placeholder: 'ex: 3192',
+    }
   },
-  mounted: function () {
+  mounted: function() {
     console.log("mounted");
-    this.$nextTick(function () {
-      // ビュー全体がレンダリングされた後にのみ実行されるコード
-    })
+  },
+  computed: {
+    result() {
+      return this.$store.state.stocks.result
+    }
+  },
+  methods: {
+    submit: function(event) {
+      this.$store.dispatch('stocks/requestFetchStock', event.target.value)
+    }
   },
   components: {
     Header,

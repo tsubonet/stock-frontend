@@ -11,12 +11,13 @@ export const mutations = {
 
 export const actions = {
   async requestFetchStock(context, code) {
-    this.$axios.$get('http://localhost:3001/api/stocks/' + code)
+    this.$axios.$get('http://localhost:3001/api/stocks/?code=' + code)
       .then((response) => {
         context.commit('setResult', response)
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err.response)
+        context.commit('setResult', err.response.data)
       })
   }
 }
