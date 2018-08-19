@@ -73,4 +73,4 @@ export const actions = {
         console.error(err.response)
       })
   },
-}
+} 

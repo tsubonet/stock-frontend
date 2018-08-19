@@ -1,42 +1,42 @@
 <template>
-  <div class="outer">
-    <input 
-      type="text"
-      class="inputField"
-      :placeholder="placeholder"
-      @keyup.enter="submit"
-    />
-    <i class="fas fa-search"></i>
-  </div>
+  <button class="button" @click="click"><slot></slot></button>
 </template>
 
 <script lang="ts">
 export default {
-  props: ['submit', 'placeholder'],
+  props: ['text'],
+  methods: {
+    click: function(){
+  　　this.$emit('click');
+  　},
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-.outer {
+.button {
+  background-color: #00d1b2;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  justify-content: center;
+  padding-bottom: calc(.375em - 1px);
+  padding-left: .75em;
+  padding-right: .75em;
+  padding-top: calc(.375em - 1px);
+  text-align: center;
+  white-space: nowrap;
+  border-width: 1px;
+  -webkit-appearance: none;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.25em;
   position: relative;
-  max-width: 400px;
-  margin: 0 auto;
-}
-.inputField {
-  width: 100%;  
-  padding: 20px;
-  font-size: 20px;
-  border-radius: 3px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  box-shadow: 0px 3px 3px rgba(0,0,0,.1);
-}
-i {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  font-size: 24px;
-  transform: translateY(-50%);
-  color: #ccc;
+  vertical-align: top;
+  line-height: 1.5;
 }
 </style>

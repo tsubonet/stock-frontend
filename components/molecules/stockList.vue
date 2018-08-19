@@ -21,28 +21,28 @@ ul {
   margin: 0;
   padding: 0;
   text-align: left;
-}
-li {
-  border-bottom: 1px solid #ccc;
-  padding: 0;
-  position: relative;
-  a {
-    display: block;
-    padding: 16px 40px 16px 12px;
-    color: #4d4d4d;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 1.3;
-    &.nuxt-link-active {
-      background: #cccccc;
+  li {
+    border-bottom: 1px solid #ccc;
+    padding: 0;
+    position: relative;
+    a {
+      display: block;
+      padding: 16px 40px 16px 12px;
+      color: #4d4d4d;
+      font-weight: bold;
+      text-decoration: none;
+      line-height: 1.3;
+      &.nuxt-link-active {
+        background: #cccccc;
+      }
     }
-  }
-  .fa-trash {
-    position: absolute;
-    color: #bbb;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    .fa-trash {
+      position: absolute;
+      color: #bbb;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 }
 </style>

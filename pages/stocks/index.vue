@@ -1,8 +1,9 @@
 <template>
   <div class="wrap">
-    <Input 
+    <Input
       :submit="searchSubmit"
       :placeholder="placeholder"
+      ref="inputComponentRef"
     /> 
     <StockDetail
       :result="result"
@@ -34,6 +35,7 @@ export default {
       this.$store.dispatch('stocks/searchStock', event.target.value)
     },
     addStock: function(code, name) {
+      this.$refs.inputComponentRef.clearInput();
       this.$store.dispatch('stocks/addStock', { code, name })
     },
   },
