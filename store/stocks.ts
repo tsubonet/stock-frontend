@@ -22,6 +22,7 @@ export const mutations = {
   },
 }
 
+
 // export const getters = {
 //   result: state => state.result,
 //   list: state => state.list,
