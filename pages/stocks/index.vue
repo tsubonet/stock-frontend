@@ -1,43 +1,43 @@
 <template>
-  <div>
-    <Header />
-    <div class="container">
-      <Input 
-        :submit="submit"
-        :placeholder="placeholder"
-      /> 
-      <StockDetail
-        :result="result"
-       /> 
-    </div>
+  <div class="wrap">
+    <Input 
+      :submit="searchSubmit"
+      :placeholder="placeholder"
+    /> 
+    <StockDetail
+      :result="result"
+      :addStock="addStock"
+      :isShowButton="isShowButton"
+    /> 
   </div>
 </template>
 
 <script lang="ts">
-import Header from '../../components/organisms/header.vue'
+import { mapState } from 'vuex'
 import StockDetail from '../../components/organisms/stockDetail.vue'
 import Input from '../../components/atoms/input.vue'
+
 export default {
   data: function() {
     return {
       placeholder: 'ex: 3192',
+      isShowButton: true,
     }
-  },
-  mounted: function() {
-    console.log("mounted");
   },
   computed: {
-    result() {
-      return this.$store.state.stocks.result
-    }
+    ...mapState('stocks', [
+      'result',
+    ]),
   },
   methods: {
-    submit: function(event) {
-      this.$store.dispatch('stocks/requestFetchStock', event.target.value)
-    }
+    searchSubmit: function(event) {
+      this.$store.dispatch('stocks/searchStock', event.target.value)
+    },
+    addStock: function(code, name) {
+      this.$store.dispatch('stocks/addStock', { code, name })
+    },
   },
   components: {
-    Header,
     Input,
     StockDetail,
   }
@@ -45,8 +45,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  max-width: 960px;
+.wrap {
+  width: 512px;
   margin: 0 auto;
   padding: 20px 20px;
 }

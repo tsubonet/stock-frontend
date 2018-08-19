@@ -13,7 +13,7 @@
         <p class="change">前日比: <span>{{result.change}}</span></p>
       </div>
       <div><img v-bind:src="result.chartUrl"></div>
-      <div class="buttonList">
+      <div class="buttonList" v-show="isShowButton">
         <button @click="addStock(result.code, result.name)">追加する</button>
       </div>
     </div>
@@ -22,7 +22,7 @@
 
 <script lang="ts">
 export default {
-  props: ['result', 'addStock'],
+  props: ['result', 'addStock', 'isShowButton'],
 }
 </script>
 
@@ -72,7 +72,7 @@ export default {
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateY(-100px);
+  // transform: translateY(-100px);
   opacity: 0;
 }
 

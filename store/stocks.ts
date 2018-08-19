@@ -1,7 +1,7 @@
 export const state = () => ({
-  query: '',
   list: [],
-  result: {}
+  result: {},
+  selected: {},
 })
   
 export const mutations = {
@@ -17,13 +17,16 @@ export const mutations = {
   removeItem(state, item) {
     state.list.splice(state.list.indexOf(item), 1)
   },
-
+  selectItem(state, item) {
+    state.selected = item
+  },
 }
 
-export const getters = {
-  result: state => state.result,
-  list: state => state.list,
-}
+// export const getters = {
+//   result: state => state.result,
+//   list: state => state.list,
+//   selected: state => state.selected,
+// }
 
 export const actions = {
   async fetchStock(context) {
@@ -47,17 +50,26 @@ export const actions = {
         context.commit('addItem', response)
       })
       .catch((err) => {
-        console.log(err.response)
+        console.error(err.response)
       })
   },
   async removeStock(context, stock) {
-    console.log(stock)
     this.$axios.$delete('http://localhost:3001/api/stocks/' + stock.id)
       .then((response) => {
         context.commit('removeItem', stock)
+        this.$router.push('/stocks/');
       })
       .catch((err) => {
-        console.log(err.response)
+        console.error(err.response)
       })
-  }
+  },
+  async selectStock(context, stock) {
+    this.$axios.$get('http://localhost:3001/api/stocks/' + stock.id)
+      .then((response) => {
+        context.commit('selectItem', response)
+      })
+      .catch((err) => {
+        console.error(err.response)
+      })
+  },
 }

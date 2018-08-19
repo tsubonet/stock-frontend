@@ -1,12 +1,14 @@
 <template>
   <header>
-    <h1><nuxt-link :to="'/'"><i class="fas fa-chart-line"></i> 株価を取得するよ</nuxt-link></h1>
+    <h1><nuxt-link :to="'/stocks'"><i class="fas fa-chart-line"></i> 株価を取得するよ</nuxt-link></h1>
   </header>
 </template>
+
 <script lang="ts">
 export default {
 }
 </script>
+
 <style lang="scss" scoped>
 header {
   height: 60px;

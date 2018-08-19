@@ -33,6 +33,9 @@ li {
     font-weight: bold;
     text-decoration: none;
     line-height: 1.3;
+    &.nuxt-link-active {
+      background: #cccccc;
+    }
   }
   .fa-trash {
     position: absolute;
