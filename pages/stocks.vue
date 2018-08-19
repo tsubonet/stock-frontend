@@ -21,11 +21,8 @@ import Header from '../components/organisms/header.vue'
 import StockList from '../components/molecules/stockList.vue'
 
 export default {
-  // async fetch ({ store, params }) {
-  //   await store.dispatch('stocks/fetchStock');
-  // },
-  mounted: function() {
-    this.fetchStock();
+  async asyncData ({ store, params }) {
+    await store.dispatch('stocks/fetchStock')
   },
   computed: {
     ...mapState('stocks', [
@@ -33,9 +30,6 @@ export default {
     ]),
   },
   methods: {
-    fetchStock: function() {
-      this.$store.dispatch('stocks/fetchStock');
-    },
     removeStock: function(stock) {
       this.$store.dispatch('stocks/removeStock', stock)
     },

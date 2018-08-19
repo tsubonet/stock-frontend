@@ -22,21 +22,18 @@ export const mutations = {
   },
 }
 
-
-// export const getters = {
-//   result: state => state.result,
-//   list: state => state.list,
-//   selected: state => state.selected,
-// }
+export const getters = {
+  result: state => state.result,
+  list: state => state.list,
+  selected: state => state.selected,
+}
 
 export const actions = {
   async fetchStock(context) {
-    this.$axios.$get('http://localhost:3001/api/stocks/')
-      .then((response) => {
-        context.commit('setList', response)
-      })
+    const response = await this.$axios.$get('http://localhost:3001/api/stocks/')
+    context.commit('setList', response)
   },
-  async searchStock(context, code) {
+  searchStock(context, code) {
     this.$axios.$get('http://localhost:3001/api/stocks/search/?code=' + code)
       .then((response) => {
         context.commit('setResult', response)
@@ -45,7 +42,7 @@ export const actions = {
         context.commit('setResult', err.response.data)
       })
   },
-  async addStock(context, data) {
+  addStock(context, data) {
     this.$axios.$post('http://localhost:3001/api/stocks/', data)
       .then((response) => {
         context.commit('addItem', response)
@@ -55,7 +52,7 @@ export const actions = {
         console.error(err.response)
       })
   },
-  async removeStock(context, stock) {
+  removeStock(context, stock) {
     this.$axios.$delete('http://localhost:3001/api/stocks/' + stock.id)
       .then((response) => {
         context.commit('removeItem', stock)
@@ -65,7 +62,7 @@ export const actions = {
         console.error(err.response)
       })
   },
-  async selectStock(context, stock) {
+  selectStock(context, stock) {
     this.$axios.$get('http://localhost:3001/api/stocks/' + stock.id)
       .then((response) => {
         context.commit('selectItem', response)
