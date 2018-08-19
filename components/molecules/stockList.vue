@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <ul class="players">
+    <ul>
       <li v-for="stock in list" :key="stock.id">
         <nuxt-link :to="'/stocks/'+stock.id">{{ stock.code }} : {{ stock.name }}</nuxt-link>
         <i class="fa fa-trash" @click="removeStock(stock)"></i>

@@ -1,14 +1,22 @@
 <template>
   <div class="wrap">
-    <StockDetail
-      :result="selected"
-    /> 
+    <div class="chart">
+      <StockDetail
+        :result="selected"
+      /> 
+    </div>
+    <div class="news">
+      <NewsList
+        :selected="selected"
+      />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { mapState } from 'vuex'
 import StockDetail from '../../components/organisms/stockDetail.vue'
+import NewsList from '../../components/molecules/newsList.vue'
 
 export default {
   mounted: function() {
@@ -26,14 +34,28 @@ export default {
   },
   components: {
     StockDetail,
+    NewsList,
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .wrap {
-  width: 512px;
-  margin: 0 auto;
-  padding: 20px 20px;
+  display: flex;
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+}
+.chart {
+  box-sizing: border-box;
+  width: 50%;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+.news {
+  box-sizing: border-box;
+  width: 50%;
+  padding: 20px;
+  text-align: left;
 }
 </style>

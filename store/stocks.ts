@@ -48,6 +48,7 @@ export const actions = {
     this.$axios.$post('http://localhost:3001/api/stocks/', data)
       .then((response) => {
         context.commit('addItem', response)
+        context.commit('setResult', {})
       })
       .catch((err) => {
         console.error(err.response)
@@ -57,7 +58,7 @@ export const actions = {
     this.$axios.$delete('http://localhost:3001/api/stocks/' + stock.id)
       .then((response) => {
         context.commit('removeItem', stock)
-        this.$router.push('/stocks/');
+        this.$router.push('/stocks/')
       })
       .catch((err) => {
         console.error(err.response)

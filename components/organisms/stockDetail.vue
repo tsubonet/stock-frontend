@@ -12,7 +12,7 @@
         <p class="price">{{result.price}}</p>
         <p class="change">前日比: <span>{{result.change}}</span></p>
       </div>
-      <div><img v-bind:src="result.chartUrl"></div>
+      <div class="chartImage"><img v-bind:src="result.chartUrl"></div>
       <div class="buttonList" v-show="isShowButton">
         <button @click="addStock(result.code, result.name)">追加する</button>
       </div>
@@ -61,6 +61,12 @@ export default {
       color: #fff;
       background: rgb(165, 5, 66);
     }
+  }
+}
+
+.chartImage {
+  img {
+    width: 100%;
   }
 }
 
