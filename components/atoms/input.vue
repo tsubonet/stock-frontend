@@ -3,6 +3,7 @@
     <input 
       type="text"
       class="inputField"
+      ref="inputRef"
       :placeholder="placeholder"
       @keyup.enter="submit"
     />
@@ -12,7 +13,13 @@
 
 <script lang="ts">
 export default {
-  props: ['submit', 'placeholder'],
+  props: ['submit', 'placeholder', 'inputRef'],
+  methods: {
+    clearInput: function() {
+      this.$refs.inputRef.value = '';
+    },
+  },
+
 }
 </script>
 
